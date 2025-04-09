@@ -1,0 +1,14 @@
+@import "tailwindcss";
+
+
+@theme {
+    --color-primary: oklch(0.577 0.245 27.325);
+    --color-background: #0B0B0F; /* Entire app background */
+    --color-surface: #151518; /* Card,Modal,Dropdown menu,Navbar,Popups/Tooltips,Player-controls-section */
+    --color-accent: #FF8A80; /* Volume slider thumb,Seek bar progress,Repeat/Shuffle button,Tooltip text,Subtitle On/Off,Hover or focus ring,Icon hover effect */
+    --color-text-primary: #FFFFFF; /* Main text, labels, titles */
+    --color-text-secondary: #AAAAAA; /* Descriptions, etc */
+    --color-border: #2A2A2A; /* Element borders, input fields */
+    --color-success: #00C776;
+    --color-error: #FF4C4C;
+  }
