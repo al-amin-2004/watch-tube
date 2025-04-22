@@ -1,5 +1,13 @@
 import Link from "next/link";
 import { Search, UserHeadphone } from "../icons/icons";
+import { Logo } from "../ui/Logo";
+import {
+  Dropdown,
+  DropdownAction,
+  DropdownContent,
+  DropdownDivider,
+  DropdownItem,
+} from "../ui/Dropdown";
 
 export default function Header() {
   return (
@@ -7,12 +15,7 @@ export default function Header() {
       <div className="container mx-auto px-2 md:px-0 py-2 md:py-4 flex justify-between items-center text-white">
         {/* LOGO  */}
         <Link href="/">
-          <h1 className="text-3xl font-bold text-primary cursor-pointer">
-            <span className="relative inline-block before:absolute before:-inset-1 before:block before:-skew-y-3 before:bg-primary">
-              <span className="text-white relative">Watch</span>
-            </span>
-            Tube
-          </h1>
+          <Logo />
         </Link>
 
         {/* NavBar  */}
@@ -41,9 +44,20 @@ export default function Header() {
         </div>
 
         {/* Profile  */}
-        <div className="rounded-sm ring-2 ring-primary p-1.5 cursor-pointer">
-          <UserHeadphone className="size-7" />
-        </div>
+        <Dropdown>
+          <DropdownAction>
+            <div className="rounded-sm ring-2 ring-primary p-1.5 cursor-pointer">
+              <UserHeadphone className="size-7" />
+            </div>
+          </DropdownAction>
+          <DropdownContent center  text="left">
+            <DropdownItem>Profile</DropdownItem>
+            <DropdownItem>Setting</DropdownItem>
+            <DropdownDivider></DropdownDivider>
+            <DropdownItem>Logout</DropdownItem>
+            <DropdownItem>Support</DropdownItem>
+          </DropdownContent>
+        </Dropdown>
       </div>
     </header>
   );

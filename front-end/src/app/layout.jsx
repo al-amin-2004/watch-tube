@@ -1,6 +1,7 @@
 import { Inter} from "next/font/google";
 import "./globals.css";
 import Header from "@/components/common/Header";
+import Footer from "@/components/common/Footer";
 
 
 const interSans = Inter({
@@ -19,6 +20,7 @@ export default function RootLayout({ children }) {
       <body className={`bg-background ${interSans.className}`}>
         <Header/>
         {children}
+        <Footer/>
       </body>
     </html>
   );

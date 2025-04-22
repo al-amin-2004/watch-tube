@@ -2,6 +2,7 @@ import { Plus } from "../icons/icons";
 import { Button } from "../ui/Button";
 import Card from "../ui/Card";
 import SectionHead from "../ui/SectionHead";
+import musicData from "@/lib/testdata.json";
 
 export default function Popular() {
   return (
@@ -15,56 +16,14 @@ export default function Popular() {
           <SectionHead children="Most Popular" />
 
           <div className="flex flex-wrap gap-10 justify-center py-5">
-            <Card
-              posterimgSrc="/poster/poster1.jpg"
-              name="Tha Shadow"
-              types="Action, Drama"
-            />
-            <Card
-              posterimgSrc="/poster/poster2.jpg"
-              name="Tha Shadow"
-              types="Action, Drama"
-            />
-            <Card
-              posterimgSrc="/poster/poster3.jpg"
-              name="Tha Shadow"
-              types="Action, Drama"
-            />
-            <Card
-              posterimgSrc="/poster/poster4.jpg"
-              name="Tha Shadow"
-              types="Action, Drama"
-            />
-            <Card
-              posterimgSrc="/poster/poster5.jpg"
-              name="Tha Shadow"
-              types="Action, Drama"
-            />
-            <Card
-              posterimgSrc="/poster/poster4.jpg"
-              name="Tha Shadow"
-              types="Action, Drama"
-            />
-            <Card
-              posterimgSrc="/poster/poster5.jpg"
-              name="Tha Shadow"
-              types="Action, Drama"
-            />
-            <Card
-              posterimgSrc="/poster/poster1.jpg"
-              name="Tha Shadow"
-              types="Action, Drama"
-            />
-            <Card
-              posterimgSrc="/poster/poster3.jpg"
-              name="Tha Shadow"
-              types="Action, Drama"
-            />
-            <Card
-              posterimgSrc="/poster/poster2.jpg"
-              name="Tha Shadow"
-              types="Action, Drama"
-            />
+            {musicData.map((music) => (
+              <Card
+                key={music.id}
+                posterimgSrc={"/poster/" + music.poster}
+                name={music.title}
+                types={music.type.join(" ")}
+              ></Card>
+            ))}
           </div>
 
           <div className="flex justify-center py-5">

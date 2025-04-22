@@ -1,3 +1,4 @@
+import Categories from "@/components/landing/Categories";
 import ComingSoon from "@/components/landing/ComingSoon";
 import Hero from "@/components/landing/Hero";
 import Music from "@/components/landing/Music";
@@ -12,6 +13,7 @@ export default function Home() {
       <ComingSoon/>
       <Popular/>
       <Music/>
+      <Categories/>
     </>
   );
 }

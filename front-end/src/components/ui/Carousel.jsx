@@ -21,37 +21,35 @@ export const Carousel = ({ children, gap, indicator, autoscroll }) => {
     }
   }, []);
 
-
-  const scroll = useCallback((direction) => {
-    setTotalScroll((prevs) => {
-      if (direction === "next") {
-        if (prevs >= totalWidth - childWidth * 6) {
-          return 0;
+  const scroll = useCallback(
+    (direction) => {
+      setTotalScroll((prevs) => {
+        if (direction === "next") {
+          if (prevs >= totalWidth - childWidth * 6) {
+            return 0;
+          }
+          return prevs + childWidth + gapAtpx;
+        } else {
+          if (prevs <= 0) {
+            return totalWidth - (childWidth + gapAtpx) * 5;
+          }
+          return prevs - (childWidth + gapAtpx);
         }
-        return prevs + childWidth + gapAtpx;
-      } else {
-        if (prevs <= 0) {
-          return totalWidth - (childWidth + gapAtpx) * 5;
-        }
-        return prevs - (childWidth + gapAtpx);
-      }
-    });
-  }, [totalWidth, childWidth, gapAtpx]);
-  
+      });
+    },
+    [totalWidth, childWidth, gapAtpx]
+  );
 
   // Auto Scroll
   useEffect(() => {
-    if(!autoscroll) return;
+    if (!autoscroll) return;
 
     const interval = setInterval(() => {
       scroll("next");
     }, autoscroll * 1000);
 
-    return () =>  clearInterval(interval)
-  },[scroll])
-
-   
-
+    return () => clearInterval(interval);
+  }, [scroll]);
 
   return (
     <div className="overflow-hidden">
@@ -69,11 +67,16 @@ export const Carousel = ({ children, gap, indicator, autoscroll }) => {
 
       {indicator && (
         <div className="flex gap-x-3 justify-end px-5">
-          <Left onClick={() => scroll("prev")} className="stroke-white size-9 bg-surface p-1.5 rounded cursor-pointer hover:stroke-primary duration-200" />
-          <Right onClick={() => scroll("next")} className="stroke-white size-9 bg-surface p-1.5 rounded cursor-pointer hover:stroke-primary duration-200" />
+          <Left
+            onClick={() => scroll("prev")}
+            className="stroke-white size-9 bg-surface p-1.5 rounded cursor-pointer hover:stroke-primary duration-200"
+          />
+          <Right
+            onClick={() => scroll("next")}
+            className="stroke-white size-9 bg-surface p-1.5 rounded cursor-pointer hover:stroke-primary duration-200"
+          />
         </div>
       )}
     </div>
   );
 };
-
